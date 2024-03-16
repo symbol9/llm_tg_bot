@@ -6,13 +6,14 @@ def answering_model(question):
         'question-answering',
         model='Den4ikAI/rubert_large_squad_2',
         tokenizer='Den4ikAI/rubert_large_squad_2')
-    with open('data_1.csv', 'r', encoding='utf-8') as data_file:
+    with open(r'C:\Users\nefio\PycharmProjects\llm_tg_bot\QA_Model\data_1.csv', 'r', encoding='utf-8') as data_file:
         context_1 = data_file.read()
-    with open('Prompt', 'r', encoding='utf-8') as prompt_file:
+    with open(r'C:\Users\nefio\PycharmProjects\llm_tg_bot\QA_Model\prompt', 'r', encoding='utf-8') as prompt_file:
         prompt = prompt_file.read()
     res = qa_model({
         'context': context_1,
         'question': prompt + question
     })
+    print(prompt+question)
 
     return res

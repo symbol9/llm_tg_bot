@@ -2,8 +2,7 @@ import logging
 import asyncio
 
 from aiogram import Bot, Dispatcher
-from aiogram.fsm.storage.redis import RedisStorage
-from redis.asyncio.client import Redis
+from aiogram.fsm.storage.redis import RedisStorage, Redis
 from handlers import user_handlers, other_handlers
 from config_data.config import load_config
 from keyboards.main_menu import set_main_menu

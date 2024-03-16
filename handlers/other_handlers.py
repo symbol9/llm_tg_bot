@@ -1,5 +1,6 @@
 import logging
 
+from aiogram import Router
 from aiogram.types import Message
 
 logger = logging.getLogger(__name__)
