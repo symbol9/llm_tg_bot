@@ -11,7 +11,7 @@ def answering_model(question):
     with open(r'C:\Users\nefio\PycharmProjects\llm_tg_bot\QA_Model\prompt.txt', 'r', encoding='utf-8') as prompt_file:
         prompt = prompt_file.read()
     res = qa_model({
-        'context': prompt + context_1,
+        'context': context_1,
         'question': question
     })
 
