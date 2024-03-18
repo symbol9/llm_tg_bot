@@ -1,6 +1,8 @@
 import logging
-from QA_Model.QA_Model import answering_model
+import requests
 
+
+from QA_Model.QA_Model import answering_model
 from aiogram import F, Router
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import default_state, State, StatesGroup
@@ -23,6 +25,17 @@ async def start(message: Message):
     await message.answer('Привет! Я твой бот, который поможет вам выбрать вопрос о нашей компании '
                          'и нейросеть попробует на него ответить!',
                          reply_markup=filled_form_kb())
+
+
+@router.message()
+async def fill_question(message: Message):
+    question = str(message.text)
+    await message.answer(answering_model(question)['answer'])
+
+'''
+Думаю функционал ниже сдесь не особо нужен
+'''
+
 
 
 @router.message(F.text == 'QA_BTN🤖')
